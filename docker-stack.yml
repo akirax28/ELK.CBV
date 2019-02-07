@@ -103,4 +103,4 @@ configs:
 
 networks:
   elk:
-    driver: bridge
+    driver: overlay
