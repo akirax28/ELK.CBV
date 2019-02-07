@@ -32,6 +32,8 @@ services:
         target: /usr/share/logstash/config/logstash.yml
       - source: logstash_pipeline
         target: /usr/share/logstash/pipeline/logstash.conf
+      - source: logstash_elasticsearch-template.json
+        target: /opt/logstash/elasticsearch-template.json
       #- source: logstash_winad
       #  target: /usr/share/logstash/pipeline/winad.conf
       ###fim original
@@ -45,6 +47,7 @@ services:
       #  target: /etc/logstash/conf.d/30-outputs.conf
       - source: pfsense.grok
         target: /etc/logstash/conf.d/patterns/pfsense.grok
+        
     environment:
       LS_JAVA_OPTS: "-Xmx10g -Xms10g"
     networks:
@@ -89,6 +92,8 @@ configs:
     file: ./logstash/pipeline/pfsense.grok
   logstash_pipeline:
     file: ./logstash/pipeline/logstash.conf
+  logstash_elasticsearch-template.json:
+    file: ./logstash/pipeline/elasticsearch-template.json
   #logstash_winad:
   #  file: ./logstash/pipeline/winad.conf
 #kibana config
