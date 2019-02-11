@@ -11,7 +11,7 @@ services:
       - source: elastic_config
         target: /usr/share/elasticsearch/config/elasticsearch.yml
     environment:
-      ES_JAVA_OPTS: "-Xmx2g -Xms2g"
+      ES_JAVA_OPTS: "-Xmx512m -Xms512m"
     networks:
       - elk
     deploy:
@@ -49,7 +49,7 @@ services:
         target: /etc/logstash/conf.d/patterns/pfsense.grok
         
     environment:
-      LS_JAVA_OPTS: "-Xmx2g -Xms2g"
+      LS_JAVA_OPTS: "-Xmx512m -Xms512m"
     networks:
       - elk
     volumes:
